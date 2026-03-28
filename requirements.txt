@@ -1,0 +1,78 @@
+# ==========================================
+# PROXMOX MULTI-CLUSTER INVENTORY TOOL
+# ==========================================
+# Dependencias para herramienta de inventario automatizado
+# Autor: [SktCod.ByChisto]
+# Versión: 2.0.0
+
+# ==========================================
+# DEPENDENCIAS PRINCIPALES (REQUERIDAS)
+# ==========================================
+
+# HTTP client para comunicación con API Proxmox
+requests>=2.25.0
+
+# Manejo de archivos de configuración .env
+python-dotenv>=0.19.0
+
+# Supresión de warnings SSL para conexiones no verificadas
+urllib3>=1.26.0
+
+# ==========================================
+# DEPENDENCIAS OPCIONALES PARA EXCEL
+# ==========================================
+
+# Manipulación de archivos Excel (.xlsx)
+# Requerido para: FileExporter.save_excel() y SharePointUploader.create_excel_in_memory()
+openpyxl>=3.0.9
+
+# ==========================================
+# DEPENDENCIAS OPCIONALES PARA SHAREPOINT
+# ==========================================
+
+# Microsoft Authentication Library para Azure AD
+# Requerido para: SharePointUploader autenticación con Microsoft Graph API
+msal>=1.20.0
+
+# ==========================================
+# DEPENDENCIAS DEL SISTEMA (ya incluidas en Python)
+# ==========================================
+# Estas vienen con Python estándar, listadas solo como referencia:
+# - os
+# - re  
+# - json
+# - csv
+# - socket
+# - datetime
+# - argparse
+# - traceback
+# - pathlib
+# - urllib.parse
+
+# ==========================================
+# INSTALACIÓN
+# ==========================================
+# 
+# Instalación mínima (solo archivos CSV/JSON):
+# pip install requests python-dotenv urllib3
+#
+# Instalación completa (incluye Excel + SharePoint):
+# pip install -r requirements.txt
+#
+# Instalación desde cero:
+# pip install --upgrade pip
+# pip install -r requirements.txt
+#
+# ==========================================
+# NOTAS DE COMPATIBILIDAD
+# ==========================================
+#
+# Python: 3.6+
+# Sistemas: Windows, Linux, macOS
+# 
+# Para producción se recomienda usar versiones fijas:
+# requests==2.31.0
+# python-dotenv==1.0.0  
+# urllib3==2.0.4
+# openpyxl==3.1.2
+# msal==1.24.0
