@@ -1,0 +1,22 @@
+name: Sincronizacion Automatica
+on:
+  push:
+    branches: [ main, master ] # Se activa cuando subes algo
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    if: github.actor != 'github-actions[bot]' # No te cicla
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Enviar a Cuenta B
+        run: |
+          git config --global user.name "SyncBot"
+          git config --global user.email "sync@bot.com"
+          # Saca el nombre del proyecto actual
+          REPO_NAME=$(basename $GITHUB_REPOSITORY)
+          # Empuja el codigo a la Cuenta B (Cambia USUARIO_B por tu nombre real de cuenta B)
+          git remote add mirror "https://x-access-token:${{ secrets.SYNC_TOKEN }}@github.com/adm-gitrepos/$REPO_NAME.git"
+          git push --force --prune mirror "refs/remotes/origin/*:refs/heads/*"
